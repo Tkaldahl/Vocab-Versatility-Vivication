@@ -1,0 +1,13 @@
+<section class="tweets">
+    {{#each vocab }}
+        <div class="card">
+            {{ item }}
+            {{!-- <div class="card-content">
+                <a href="/tweet/{{id}}" class="card-title">{{ content }}</a>
+            </div> --}}
+            {{!-- <div class="card-action">
+                <a href="/user/{{ author.id }}">{{ author.local.email }}</a>
+            </div> --}}
+        </div>
+    {{/each}}
+</section>
