@@ -52,18 +52,14 @@ var randomWord3 = null
 var randomWordHTML = document.getElementById('randomWord')
 var sentenceField = document.getElementById('sentenceField')
 
-// function sentenceEventListener () {
-//   console.log()
-sentenceField.addEventListener('click', function (evt) {
-  evt.preventDefault()
+sentenceField.addEventListener('keypress', function (evt) {
+  // evt.preventDefault()
   if (evt.keyCode === 13) {
     evt.preventDefault()
-    console.log('enter')
+    answer1 = sentenceField.value
+    console.log(answer1)
   }
 })
-// }
-
-// sentenceEventListener()
 
 function startGame () {
   randomWord1 = words.magnificent.word + ':<br>' + words.magnificent.definition
