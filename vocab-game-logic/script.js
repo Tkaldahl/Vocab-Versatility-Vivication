@@ -17,7 +17,7 @@ function timer () {
     timerElement.innerHTML = "Time's Up."
   }
 }
-document.getElementById('startButton').addEventListener('click', startTimer)
+document.getElementById('startButton').addEventListener('click', startGame)
 
 // random word generator
 var words = {
@@ -62,6 +62,11 @@ sentenceField.addEventListener('keypress', function (evt) {
 })
 
 function startGame () {
+  assignWord()
+  startTimer()
+}
+
+function assignWord () {
   randomWord1 = words.magnificent.word + ':<br>' + words.magnificent.definition
   randomWordHTML.innerHTML = randomWord1
 }
