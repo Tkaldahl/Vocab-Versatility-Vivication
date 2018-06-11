@@ -3,7 +3,7 @@ var count = 0
 var interval = null
 
 function startTimer () {
-  count = 60 // set the number of seconds you want to countdown. 
+  count = 60 // set the number of seconds you want to countdown.
   timer()
   interval = setInterval(timer, 1000)
 }
@@ -50,6 +50,21 @@ var randomWord2 = null
 var randomWord3 = null
 
 var randomWordHTML = document.getElementById('randomWord')
+var sentenceField = document.getElementById('sentenceField')
+
+// function sentenceEventListener () {
+//   console.log()
+sentenceField.addEventListener('click', function (evt) {
+  evt.preventDefault()
+  if (evt.keyCode === 13) {
+    evt.preventDefault()
+    console.log('enter')
+  }
+})
+// }
+
+// sentenceEventListener()
+
 function startGame () {
   randomWord1 = words.magnificent.word + ':<br>' + words.magnificent.definition
   randomWordHTML.innerHTML = randomWord1
