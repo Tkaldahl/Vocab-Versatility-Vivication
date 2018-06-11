@@ -52,21 +52,21 @@ var randomWord3 = null
 var randomWordHTML = document.getElementById('randomWord')
 var sentenceField = document.getElementById('sentenceField')
 
-sentenceField.addEventListener('keypress', function (evt) {
-  // evt.preventDefault()
-  if (evt.keyCode === 13) {
-    evt.preventDefault()
-    answer1 = sentenceField.value
-    console.log(answer1)
-  }
-})
-
 function startGame () {
   assignWord()
   startTimer()
+  sentenceField.focus()
 }
 
 function assignWord () {
   randomWord1 = words.magnificent.word + ':<br>' + words.magnificent.definition
   randomWordHTML.innerHTML = randomWord1
 }
+
+sentenceField.addEventListener('keypress', function (evt) {
+  if (evt.keyCode === 13) {
+    evt.preventDefault()
+    answer1 = sentenceField.value
+    console.log(answer1)
+  }
+})
