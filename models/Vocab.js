@@ -23,7 +23,11 @@ const Schema = mongoose.Schema
 // }
 
 const Vocab = {
-  item: String
+  sentence: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 }
 
 module.exports = {Vocab: mongoose.model('Vocab', Vocab)}
