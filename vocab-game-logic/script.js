@@ -35,38 +35,59 @@ var words = {
   }
 }
 
-var answer1 = null
-var answer2 = null
-var answer3 = null
-var answer4 = null
-var answer5 = null
-var answer6 = null
-var answer7 = null
-var answer8 = null
-var answer9 = null
+// save the sentence responses for access later
+var answers = {
+  1: null,
+  2: null,
+  3: null,
+  4: null,
+  5: null,
+  6: null,
+  7: null,
+  8: null,
+  9: null
+}
 
-var randomWord1 = null
-var randomWord2 = null
-var randomWord3 = null
-
+var randomWordArray = Object.keys(words)
+var printRandomWord = null
+var wordIndex = 0
+var answerIndex = 1
 var randomWordHTML = document.getElementById('randomWord')
 var sentenceField = document.getElementById('sentenceField')
 
+// clears all saved fields and resets word/answer indexes.
 function startGame () {
-  assignWord()
+  wordIndex = 0
+  answerIndex = 1
+  for (var i = 1; i < 10; i++) {
+    answers[i] = null
+  }
+  assignWordHTML()
   startTimer()
   sentenceField.focus()
 }
 
-function assignWord () {
-  randomWord1 = words.magnificent.word + ':<br>' + words.magnificent.definition
-  randomWordHTML.innerHTML = randomWord1
+// game logic
+
+function assignWordHTML () {
+  printRandomWord = randomWordArray[wordIndex] + ':<br>' + words[randomWordArray[wordIndex]].definition
+  randomWordHTML.innerHTML = printRandomWord
 }
 
+// The function below listens for the enter key in the input field. On enter, it stores the sentence in the answers object, clears the input field, and moves to the next random word.
 sentenceField.addEventListener('keypress', function (evt) {
   if (evt.keyCode === 13) {
     evt.preventDefault()
-    answer1 = sentenceField.value
-    console.log(answer1)
+    answers[answerIndex] = sentenceField.value
+    answerIndex++
+    if (wordIndex < 2) { // cycle through the three randomly selected words
+      wordIndex++
+      assignWordHTML()
+      sentenceField.value = ''
+    } else { // at wordIndex = 2 we want to reset to the beginning since there are only 3 words in our randomWordArray.
+      wordIndex = 0
+      assignWordHTML()
+      sentenceField.value = ''
+    }
   }
 })
