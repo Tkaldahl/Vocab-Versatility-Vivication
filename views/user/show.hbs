@@ -1,4 +1,11 @@
 <div>
     <h3>Most Recent Sentence</h3>
-    <p class='topSentence'>This is your top sentence: {{ user.sentences }}</p>
+    <p class='topSentence'>This is your top sentence: {{ user.sentences.0.sentence }}</p>
+    {{!-- {{#if user.sentences}}
+        <ul>
+            {{#each user.sentences}}
+                <li>{{sentence}}</li>
+            {{/each}}
+        </ul>
+    {{/if}} --}}
 </div>
