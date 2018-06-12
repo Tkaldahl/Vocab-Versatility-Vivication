@@ -1,9 +1,6 @@
 var express = require('express')
 var app = express()
 
-// app.get('/', function (req, res) {
-//   res.send('hello World')
-// })
 app.set('view engine', 'hbs')
 
 app.use(require('./routes/index.js'))

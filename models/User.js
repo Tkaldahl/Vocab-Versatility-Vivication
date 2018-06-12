@@ -1,4 +1,4 @@
-const mongoose = require('../db/connection')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const User = new Schema({
@@ -6,7 +6,7 @@ const User = new Schema({
     email: String,
     password: String
   },
-  vocab: [
+  sentences: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Vocab'
@@ -14,4 +14,4 @@ const User = new Schema({
   ]
 })
 
-module.exports = mongoose.model('User', User)
+module.exports = User
