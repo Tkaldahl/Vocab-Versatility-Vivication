@@ -16,6 +16,5 @@ require('./config/passport')(passport);
 
 app.use(require('./config/routes.js'));
 
-app.listen(8000, function () {
-  console.log('app listening on port 8000')
-})
+app.set('port', process.env.port || 8000)
+app.listen(app.get('port'), () => console.log('app listening on port 8000'))
