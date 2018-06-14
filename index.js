@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var flash = require('connect-flash');
+
 // var mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://localhost/local-authentication-with-passport');
