@@ -5,5 +5,5 @@ if (process.env.NODE_ENV === 'production') {
   mongoose.connect('mongodb://localhost/vocabDb')
 }
 // mongoose.connect('mongodb://localhost/vocabDb')
-// mongoose.Promise = Promise
+mongoose.Promise = Promise
 module.exports = mongoose

@@ -31,16 +31,11 @@ const Schema = mongoose.Schema
 //   }
 // }
 
-const VocabSchema = {
-  sentence: String,
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now()
-  }
-}
+const Vocab = new Schema({
+  word: String,
+  definition: String,
+  length: Number,
+  difficulty: Number
+})
 
-module.exports = VocabSchema
+module.exports = Vocab

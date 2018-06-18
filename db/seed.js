@@ -3,7 +3,7 @@ const Vocab = require('../models/Vocab')
 const bcrypt = require('bcrypt-nodejs')
 
 const createPassword = password =>
-  bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+  bcrypt.hashSync(password, bcrypt.genSaltSync(8), null) 
 
 User.find().remove(() => {
   Vocab.find().remove(() => {
