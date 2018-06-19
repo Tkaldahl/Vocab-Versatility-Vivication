@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const GameInstance = new Schema({
-  Player: {type: Schema.ObjectId, ref: 'User'},
+  player: {type: Schema.ObjectId, ref: 'User'},
   sentences: [],
-  vocabUsed: [{type: Schema.ObjectId, ref: 'Vocab'}],
+  vocabUsed: [{type: String, ref: 'Vocab'}],
   playedAt: {type: Date, default: Date.now}
 });
 
