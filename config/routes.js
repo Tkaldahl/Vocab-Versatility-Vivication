@@ -7,12 +7,13 @@ router.route('/')
   .get(applicationController.index)
 
 router.route('/user/signup')
-  .get(userController.signUp)
+  .get(userController.getSignUp)
+  .post(userController.postSignUp)
+
+router.route('/user/login')
+  .get(userController.login)
 
 router.route('/user/:id')
   .get(userController.show)
-
-router.route('user/login')
-  .get(userController.login)
 
 module.exports = router

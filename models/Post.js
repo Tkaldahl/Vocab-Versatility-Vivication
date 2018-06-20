@@ -3,10 +3,10 @@ const Schema = mongoose.Schema
 
 const Post = new Schema({
   content: String,
-  author: {type: Schema.ObjectId, ref: 'User'},
+  author: {type: Schema.Types.ObjectId, ref: 'User'},
   public: {type: Boolean, default: false},
   createdAt: {type: Date, default: Date.now},
-  vocabUsed: {type: Schema.ObjectId, ref: 'Vocab'}
+  vocabUsed: []
 })
 
 module.exports = Post

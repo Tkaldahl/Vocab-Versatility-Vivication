@@ -1,12 +1,15 @@
 <section class="sentences">
-    {{#each vocabs }}
         <div class="card">
             <div class="card-content">
-                <a href="/vocab/{{ id }}" class="card-title">{{ sentence }}</a>
+                <h1>{{ vocab.word }}</h1>
             </div>
             <div class="card-action">
-                <a href="/user/{{ author.id }}">{{ author.local.email }}</a>
+                <h2>{{ vocab.definition }}</h2>
             </div>
+            <form>
+                <input type="text" value="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
+                <input type="submit">
+            </form>
+            <a href="/VocabularyBuilder">Play The Game!</a>
         </div>
-    {{/each}}
 </section>

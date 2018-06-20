@@ -1,11 +1,19 @@
 <div>
-    <h3>Most Recent Sentence</h3>
-    <p class='topSentence'>This is your top sentence: {{ user.sentences.0.sentence }}</p>
-    {{!-- {{#if user.sentences}}
+    <h3>This is working if there's stuff here: {{ user.username }}</h3>
+    <p class='email'>This is your email: {{ user.local.email }}</p>
+    <p class='password'>This is your password: {{ user.local.password }}</p>
+    {{#if user.gameInstances}}
         <ul>
-            {{#each user.sentences}}
-                <li>{{sentence}}</li>
+            {{#each user.gameInstances}}
+                <li>{{sentences}}</li>
             {{/each}}
         </ul>
-    {{/if}} --}}
+    {{/if}}
+    {{#if user.writtenPosts}}
+        <ul>
+            {{#each user.writtenPosts}}
+                <li>{{content}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
 </div>

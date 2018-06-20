@@ -2,13 +2,14 @@ const { Vocab } = require('../models/index')
 
 module.exports = {
   index: (req, res) => {
-    Vocab.find({})
-      // .sort({ createdAt: -1 })
-      .limit(10)
-      .populate('author')
-      .then((vocabs, err) => {
-        console.log({ vocabs })
-        res.render('app/index', { vocabs })
-      })
+    Vocab.count().exec(function (err, count) {
+      if (err) return console.error(err)
+      var randomNumber = Math.floor(Math.random() * count)
+
+      Vocab.findOne().skip(randomNumber)
+        .then((vocab, err) => {
+          res.render('app/index', { vocab })
+        })
+    })
   }
 }
