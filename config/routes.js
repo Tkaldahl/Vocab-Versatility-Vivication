@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const applicationController = require('../controllers/application')
 const userController = require('../controllers/user')
+const gameController = require('../controllers/game')
 
 router.use((req, res, next) => {
   res.locals.currentUser = req.user
@@ -20,6 +21,9 @@ function authenticatedUser (req, res, next) {
 router.route('/')
   .get(applicationController.index)
   .post(applicationController.requireAuth, applicationController.postPost)
+
+router.route('/ViciousVocab')
+  .get(gameController.show)
 
 router.route('/user/signup')
   .get(userController.getSignUp)

@@ -53,7 +53,7 @@ var printRandomWord = null
 var wordIndex = 0
 var answerIndex = 1
 var randomWordHTML = document.getElementById('randomWord')
-var sentenceField = document.getElementById('sentenceField')
+var sentenceField = document.getElementsByClassName('sentenceField')
 
 // clears all saved fields and resets word/answer indexes.
 function startGame () {
@@ -64,7 +64,7 @@ function startGame () {
   }
   assignWordHTML()
   startTimer()
-  sentenceField.focus()
+  document.getElementById('focus1').focus()
 }
 
 // game logic
@@ -75,19 +75,42 @@ function assignWordHTML () {
 }
 
 // The function below listens for the enter key in the input field. On enter, it stores the sentence in the answers object, clears the input field, and moves to the next random word.
-sentenceField.addEventListener('keypress', function (evt) {
-  if (evt.keyCode === 13) {
-    evt.preventDefault()
-    answers[answerIndex] = sentenceField.value
-    answerIndex++
-    if (wordIndex < 2) { // cycle through the three randomly selected words
-      wordIndex++
-      assignWordHTML()
-      sentenceField.value = ''
-    } else { // at wordIndex = 2 we want to reset to the beginning since there are only 3 words in our randomWordArray.
-      wordIndex = 0
-      assignWordHTML()
-      sentenceField.value = ''
+// sentenceField.forEach(element => {
+//   element.addEventListener('keypress', function (evt) {
+//     if (evt.keyCode === 13) {
+//       evt.preventDefault()
+//       answers[answerIndex] = element.value
+//       answerIndex++
+//       document.getElementById(`focus${answerIndex}`).focus()
+//       if (wordIndex < 2) { // cycle through the three randomly selected words
+//         wordIndex++
+//         assignWordHTML()
+//         // element.value = ''
+//       } else { // at wordIndex = 2 we want to reset to the beginning since there are only 3 words in our randomWordArray.
+//         wordIndex = 0
+//         assignWordHTML()
+//         // element.value = ''
+//       }
+//     }
+//   })
+// })
+
+for (var i = 0; i < sentenceField.length; i++) {
+  sentenceField[i].addEventListener('keypress', function (evt) {
+    if (evt.keyCode === 13) {
+      evt.preventDefault()
+      // answers[answerIndex] = sentenceField[i].value
+      answerIndex++
+      document.getElementById(`focus${answerIndex}`).focus()
+      if (wordIndex < 2) { // cycle through the three randomly selected words
+        wordIndex++
+        assignWordHTML()
+        // element.value = ''
+      } else { // at wordIndex = 2 we want to reset to the beginning since there are only 3 words in our randomWordArray.
+        wordIndex = 0
+        assignWordHTML()
+        // element.value = ''
+      }
     }
-  }
-})
+  })
+}

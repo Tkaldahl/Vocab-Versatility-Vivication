@@ -2,6 +2,7 @@
     <h3>This is working if there's stuff here: {{ user.username }}</h3>
     <p class='email'>This is your email: {{ user.local.email }}</p>
     <p class='password'>This is your password: {{ user.local.password }}</p>
+    <a href="/ViciousVocab">Play The Game!</a>
     {{#if user.gameInstances}}
         <ul>
             {{#each user.gameInstances}}
