@@ -44,6 +44,11 @@ function postLogin (req, res, next) {
   return postLogin(req, res, next)
 }
 
+function logout (req, res) {
+  req.logout()
+  res.redirect('/')
+}
+
 function secret (request, response) {
   response.render('user/secret')
 }
@@ -53,5 +58,6 @@ module.exports = {
   show: show,
   getLogin: getLogin,
   postLogin: postLogin,
+  logout: logout,
   secret: secret
 }

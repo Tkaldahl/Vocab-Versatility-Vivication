@@ -22,6 +22,9 @@ router.route('/user/login')
   .get(userController.getLogin)
   .post(userController.postLogin)
 
+router.route('/logout')
+  .get(userController.logout)
+
 router.route('/user/:id')
   .get(userController.show)
 
