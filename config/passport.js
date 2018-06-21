@@ -53,7 +53,5 @@ module.exports = function (passport) {
       if (!user.validPassword(password)) return callback(null, false, req.flash('loginMessage', 'Ooops, wrong password'))
       return callback(null, user)
     })
-  }
-  )
-  )
+  }))
 }

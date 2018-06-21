@@ -31,7 +31,7 @@ function postSignUp (req, res, next) {
 
 // take visitor to login page
 function getLogin (req, res) {
-  res.render('user/login')
+  res.render('user/login', { message: req.flash('loginMessage') })
 }
 
 // Post the login information and authenticate
@@ -41,7 +41,6 @@ function postLogin (req, res, next) {
     failureRedirect: '/user/login',
     failureFlash: true
   })
-  // console.log('authenticating')
   return postLogin(req, res, next)
 }
 
