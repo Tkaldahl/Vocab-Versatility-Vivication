@@ -16,26 +16,31 @@ function show (req, res) {
 
 // take visitor to signup page
 function getSignUp (req, res) {
-  res.render('/user/signup', { message: req.flash('signupMessage') });
+  res.render('user/signup', { message: req.flash('signupMessage') })
 }
 
 // Post information back to the db after signing up
-function postSignUp (req, res) {
+function postSignUp (req, res, next) {
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect: '/',
     failureRedirect: '/user/signup',
     failureFlash: true
   })
-  return signupStrategy(req, res)
+  return signupStrategy(req, res, next)
 }
 
 // take visitor to login page
 function login (req, res) {
   res.render('user/login')
 }
+
+function secret (request, response) {
+  response.render('user/secret')
+}
 module.exports = {
   getSignUp: getSignUp,
   postSignUp: postSignUp,
   show: show,
-  login: login
+  login: login,
+  secret: secret
 }

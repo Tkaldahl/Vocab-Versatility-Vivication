@@ -1,46 +1,43 @@
 var LocalStrategy = require('passport-local').Strategy
-var User = require('../models/user')
+var Index = require('../models/index')
 
 module.exports = function (passport) {
-  passport.serializeUser(function (user, callback) {
-    callback(null, user.id)
+  passport.serializeUser(function (user, done) {
+    done(null, user.id)
   })
 
   passport.deserializeUser(function (id, callback) {
-    User.findById(id, function (err, user) {
+    Index.User.findById(id, function (err, user) {
       callback(err, user)
     })
   })
 
   passport.use('local-signup', new LocalStrategy({
-    usernameField: 'username',
-    emailField: 'email',
+    usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-  }, function (req, username, email, password, callback) {
+  }, function (req, email, password, callback) {
     // Find a user with this e-mail
-    User.findOne({ 'local.email': email }, function (err, user) {
-      if (err) return callback(err)
+    Index.User.findOne({ 'local.email': email })
+      .then((user) => {
+        if (user) {
+          return callback(null, false, req.flash('signupMessage', 'This email is already used.'))
+        } else {
+          // Create a new user
+          var newUser = new Index.User()
+          // newUser.username = username
+          newUser.local.email = email
+          newUser.local.password = newUser.encrypt(password)
 
-      // If there already is a user with this email
-      if (user) {
-        return callback(null, false, req.flash('signupMessage', 'This email is already used.'))
-      } else {
-        // There is no email registered with this email
-
-        // Create a new user
-        var newUser = new User()
-        newUser.local.username = username
-        newUser.local.email = email
-        newUser.local.password = newUser.encrypt(password)
-
-        newUser.save(function (err) {
-          if (err) throw err
-          return callback(null, newUser)
-        })
-      }
-    })
-  }))
+          newUser.save(function (err) {
+            if (err) throw err
+            return callback(null, newUser)
+          })
+        }
+      })
+  }
+    // .catch(err => console.log(err))
+  ))
 }
 
 // module.exports = () => console.log('here')

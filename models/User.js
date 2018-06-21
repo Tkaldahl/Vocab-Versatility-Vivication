@@ -8,7 +8,7 @@ const User = new Schema({
     password: {type: String, req: true}
   },
   image: {type: String, default: 'http://www.colonialkc.org/wp-content/uploads/2015/07/placeholder_square.jpg'},
-  username: {type: String, min: 3, max: 25, req: true},
+  // username: {type: String, min: 3, max: 25, req: true},
   gameInstances: [
     {type: Schema.Types.ObjectId, ref: 'GameInstance'}
   ],
