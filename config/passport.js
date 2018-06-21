@@ -46,7 +46,7 @@ module.exports = function (passport) {
     passReqToCallback: true
   },
   function (req, email, password, callback) {
-    console.log('authenticating')
+    // console.log('authenticating')
     Index.User.findOne({ 'local.email': email }, function (err, user) {
       if (err) return callback(err)
       if (!user) return callback(null, false, req.flash('loginMessage', 'No user found'))

@@ -9,7 +9,7 @@ function show (req, res) {
     .populate('gameInstances')
     .populate('writtenPosts')
     .then((user) => {
-      console.log(user.gameInstances[0])
+      // console.log(user.gameInstances[0])
       res.render('user/show', { user })
     })
 }

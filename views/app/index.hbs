@@ -1,15 +1,19 @@
 <section class="sentences">
         <div class="card">
             <div class="card-content">
-                <h1>{{ vocab.word }}</h1>
+                <h1 id='postVocab'>{{ vocab.word }}</h1>
             </div>
             <div class="card-action">
                 <h2>{{ vocab.definition }}</h2>
             </div>
-            <form>
-                <input type="text" value="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
-                <input type="submit">
-            </form>
-            <a href="/VocabularyBuilder">Play The Game!</a>
+            {{#if currentUser }}
+                <form>
+                    <input id="postText" type="text" placeholder="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
+                    <input type="submit">
+                </form>
+                <a href="/VocabularyBuilder">Play The Game!</a>
+            {{else}}
+                <h2>Log In To Play!</h2>
+            {{/if}}
         </div>
 </section>

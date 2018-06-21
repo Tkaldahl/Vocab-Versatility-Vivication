@@ -11,6 +11,7 @@
 </head>
 {{#if currentUser }}
 <a href="/logout">Logout</a>
+<a href="/user/{{currentUser._id}}">Profile</a>
 {{else}}
 <a href="/user/signup">Sign Up</a>
 <a href="/user/login">Login</a>

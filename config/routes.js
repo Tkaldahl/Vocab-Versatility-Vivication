@@ -3,6 +3,12 @@ const router = express.Router()
 const applicationController = require('../controllers/application')
 const userController = require('../controllers/user')
 
+router.use((req, res, next) => {
+  res.locals.currentUser = req.user
+  console.log(req)
+  next()
+})
+
 function authenticatedUser (req, res, next) {
   // If the user is authenticated, then we continue the execution
   if (req.isAuthenticated()) return next()
@@ -13,6 +19,7 @@ function authenticatedUser (req, res, next) {
 
 router.route('/')
   .get(applicationController.index)
+  .post(applicationController.requireAuth, applicationController.postPost)
 
 router.route('/user/signup')
   .get(userController.getSignUp)
