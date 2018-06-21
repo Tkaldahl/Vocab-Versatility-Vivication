@@ -19,7 +19,8 @@ router.route('/user/signup')
   .post(userController.postSignUp)
 
 router.route('/user/login')
-  .get(userController.login)
+  .get(userController.getLogin)
+  .post(userController.postLogin)
 
 router.route('/user/:id')
   .get(userController.show)

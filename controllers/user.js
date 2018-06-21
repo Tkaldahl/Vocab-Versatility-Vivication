@@ -30,8 +30,19 @@ function postSignUp (req, res, next) {
 }
 
 // take visitor to login page
-function login (req, res) {
+function getLogin (req, res) {
   res.render('user/login')
+}
+
+// Post the login information and authenticate
+function postLogin (req, res, next) {
+  var postLogin = passport.authenticate('local-login', {
+    successRedirect: '/',
+    failureRedirect: '/user/login',
+    failureFlash: true
+  })
+  // console.log('authenticating')
+  return postLogin(req, res, next)
 }
 
 function secret (request, response) {
@@ -41,6 +52,7 @@ module.exports = {
   getSignUp: getSignUp,
   postSignUp: postSignUp,
   show: show,
-  login: login,
+  getLogin: getLogin,
+  postLogin: postLogin,
   secret: secret
 }
