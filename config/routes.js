@@ -5,7 +5,7 @@ const userController = require('../controllers/user')
 
 router.use((req, res, next) => {
   res.locals.currentUser = req.user
-  console.log(req)
+  // console.log(req)
   next()
 })
 

@@ -1,19 +1,29 @@
 <section class="sentences">
-        <div class="card">
-            <div class="card-content">
-                <h1 id='postVocab'>{{ vocab.word }}</h1>
-            </div>
-            <div class="card-action">
-                <h2>{{ vocab.definition }}</h2>
-            </div>
+        
             {{#if currentUser }}
-                <form>
-                    <input id="postText" type="text" placeholder="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
-                    <input type="submit">
-                </form>
-                <a href="/VocabularyBuilder">Play The Game!</a>
+            <form action="/" method="post">
+                <div class="card">
+                    <div class="card-content">
+                        <h1 name='vocabWord' id='postVocab'>{{ vocab.word }}</h1>
+                    </div>
+                    <div class="card-action">
+                        <h2 name='vocabDefinition' >{{ vocab.definition }}</h2>
+                    </div>
+                        <input id="postText" type="text" name="post[content]" placeholder="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
+                        <input type="submit">
+                </div>
+            </form>
+            <a href="/VocabularyBuilder">Play The Game!</a>
             {{else}}
+            <div class="card">
+                <div class="card-content">
+                    <h1 id='postVocab'>{{ vocab.word }}</h1>
+                </div>
+                <div class="card-action">
+                    <h2>{{ vocab.definition }}</h2>
+                </div>
                 <h2>Log In To Play!</h2>
+            </div>
             {{/if}}
-        </div>
+        
 </section>

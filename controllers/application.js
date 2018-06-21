@@ -13,18 +13,18 @@ function index (req, res) {
 }
 
 function postPost (req, res) {
-  // res.redirect(`/user/signup`)
   // Our user makes a sentence on the homepage and we want to add it to their user data, then render it on their profile page
-  var postText = document.getElementById('postText').value
-  var vocabUsed = document.getElementById('postVocab').innerHTML
+  var postText = req.body.post.content
+  // var vocabUsed = req.body.vocabWord
+  // console.log(req.body.vocabWord)
   var currentUserId = req.user._id
-  console.log(currentUserId)
+  // console.log(currentUserId)
   // var postId = null
   // Make the Post using the values on the page and tie the author to the current user
   Index.Post.create({
     content: postText,
-    author: currentUserId,
-    vocabUsed: vocabUsed
+    author: currentUserId
+    // vocabUsed: vocabUsed
   }).then(post => {
     req.user.writtenPosts.push(post)
     req.user.save(err => {
@@ -34,9 +34,9 @@ function postPost (req, res) {
 }
 
 function requireAuth (req, res, next) {
-  console.log(req.user._id)
+  // console.log(req.user._id)
   if (req.isAuthenticated()) {
-    console.log(req.user._id)
+    // console.log(req.user._id)
     next()
   } else {
     res.redirect('/')
