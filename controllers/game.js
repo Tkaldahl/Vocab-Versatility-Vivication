@@ -12,10 +12,7 @@ function postGame (req, res) {
     sentences3: req.body.sentence3.content,
     sentences4: req.body.sentence4.content,
     sentences5: req.body.sentence5.content,
-    sentences6: req.body.sentence6.content,
-    sentences7: req.body.sentence7.content,
-    sentences8: req.body.sentence8.content,
-    sentences9: req.body.sentence9.content
+    sentences6: req.body.sentence6.content
   }).then(game => {
     req.user.gameInstances.push(game)
     req.user.save(err => {

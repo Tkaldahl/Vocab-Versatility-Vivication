@@ -9,9 +9,6 @@ const GameInstance = new Schema({
   sentences4: String,
   sentences5: String,
   sentences6: String,
-  sentences7: String,
-  sentences8: String,
-  sentences9: String,
   vocabUsed: [],
   playedAt: {type: Date, default: Date.now}
 });
