@@ -1,29 +1,28 @@
 <section class="sentences">
-        
-            {{#if currentUser }}
-            <form action="/" method="post">
-                <div class="card">
-                    <div class="card-content">
-                        <h1 name='vocabWord' id='postVocab'>{{ vocab.word }}</h1>
-                    </div>
-                    <div class="card-action">
-                        <h2 name='vocabDefinition' >{{ vocab.definition }}</h2>
-                    </div>
-                        <input id="postText" type="text" name="post[content]" placeholder="Write a sentence using the vocab word above. Don't fret about quality; it's simply practice.">
-                        <input type="submit">
-                </div>
-            </form>
-            <a href="/ViciousVocab">Play The Game!</a>
-            {{else}}
-            <div class="card">
-                <div class="card-content">
-                    <h1 id='postVocab'>{{ vocab.word }}</h1>
-                </div>
-                <div class="card-action">
-                    <h2>{{ vocab.definition }}</h2>
-                </div>
-                <h2>Log In To Play!</h2>
+    {{#if currentUser }}
+    <form action="/" method="post">
+        <div class="cardLoggedIn">
+            <div class="card-word">
+                <h1 name='vocabWord' id='postVocab'>{{ vocab.word }}</h1>
             </div>
-            {{/if}}
-        
+            <div class="card-definition">
+                <h2 name='vocabDefinition' >{{ vocab.definition }}</h2>
+            </div>
+                <input id="postText" type="text" name="post[content]" placeholder="Practice using the vocab above">
+                <input id="submitButton" type="submit">
+        </div>
+    </form>
+    <h2 class='mainPageLogin'><a href="/ViciousVocab">Play The Game!</a></h2>
+    {{else}}
+    <div class="card">
+        <div class="card-word">
+            <h2 id='postVocab'>{{ vocab.word }}</h2>
+        </div>
+        <div class="card-definition">
+            <p>{{ vocab.definition }}</p>
+        </div>
+    </div>
+    <h2 class='mainPageSignUp'><a href='/user/signup'>Sign Up</a> or<br></h2>
+    <h2 class='mainPageLogin'><a href='/user/login'>Log In To Play!</a></h2>
+    {{/if}}
 </section>

@@ -7,22 +7,50 @@ const createPassword = password =>
 // First, we create 3 vocab words using the Vocab model
 Index.Vocab.find({}).remove(() => {
   Index.Vocab.create({
-    word: 'magnificent',
-    definition: 'impressively beautiful, elaborate, or extravagant; striking.',
+    word: 'Magnificent',
+    definition: 'Adjective: Stunningly beautiful, elaborate, or extravagant; striking',
     length: 11,
     difficulty: 3
   })
   Index.Vocab.create({
-    word: 'indignant',
-    definition: 'feeling or showing anger or annoyance at what is perceived as unfair treatment.',
+    word: 'Indignant',
+    definition: 'Adjective: Feeling or showing anger or annoyance at what is perceived as unfair treatment',
     length: 9,
     difficulty: 3.5
   })
   Index.Vocab.create({
-    word: 'stoke',
-    definition: 'to stir up or excite',
-    length: 5,
-    difficulty: 3
+    word: 'Ineffable',
+    definition: 'Adjective: Too great to be expressed in words. Like this website!'
+  }).then((vocabAdded) => {
+    vocabAdded.save((err) => console.error(err))
+  })
+  Index.Vocab.create({
+    word: 'Nefarious',
+    definition: 'Adjective: Wicked, villainous, despicable'
+  }).then((vocabAdded) => {
+    vocabAdded.save((err) => console.error(err))
+  })
+  Index.Vocab.create({
+    word: 'Mellifluous',
+    definition: 'Adjective: A sound that is sweet and smooth, pleasing to hear'
+  }).then((vocabAdded) => {
+    vocabAdded.save((err) => console.error(err))
+  })
+  Index.Vocab.create({
+    word: 'Stoke',
+    definition: 'Verb: To stir up or excite'
+  }).then((vocabAdded) => {
+    vocabAdded.save((err) => console.error(err))
+  })
+  Index.Vocab.create({
+    word: 'Ethereal',
+    definition: 'Adjective: Extremely delicate, light, in a way too perfect for this world'
+  }).then((vocabAdded) => {
+    vocabAdded.save((err) => console.error(err))
+  })
+  Index.Vocab.create({
+    word: 'Ephemeral',
+    definition: 'Adjective: Lasting for a very short time'
   }).then((vocabAdded) => {
     vocabAdded.save((err) => console.error(err))
   })

@@ -290,3 +290,6 @@ for (var i = 0; i < sentenceField.length; i++) {
     }
   })
 }
+
+// For main page
+document.getElementById('postText').focus()

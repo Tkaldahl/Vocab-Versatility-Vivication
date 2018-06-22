@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="/style.css">
     <title>Vocabulary</title>
 </head>
-<header>
-    <h1><a href='/'>Eloquence Enhancer</a></h1>
-    {{#if currentUser }}
-    <menu>
-        <a href="/user/{{currentUser._id}}">Profile</a>
-        <a href="/logout">Logout</a>
-    </menu>
-    {{else}}
-    <menu>
-        <a href="/user/signup">Sign Up</a>
-        <a href="/user/login">Login</a>
-    </menu>
-    {{/if}}
-</header>
 <body>
-    {{{ body }}}
+    <header>
+        <h1><a href='/'>Eloquence Enhancer</a></h1>
+        {{#if currentUser }}
+        <menu>
+            <a href="/user/{{currentUser._id}}">Profile</a>
+            <a href="/logout">Logout</a>
+        </menu>
+        {{else}}
+        <menu>
+            <a href="/user/signup">Sign Up</a>
+            <a href="/user/login">Login</a>
+        </menu>
+        {{/if}}
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
 </body>
 <script src="/gameScript.js"></script>
 {{!-- <footer>
