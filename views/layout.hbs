@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <title>Vocabulary</title>
 </head>
 <header>
-    <h1><a href='/'>Language Is Power!</a></h1>
+    <h1><a href='/'>Eloquence Enhancer</a></h1>
+    {{#if currentUser }}
+    <menu>
+        <a href="/user/{{currentUser._id}}">Profile</a>
+        <a href="/logout">Logout</a>
+    </menu>
+    {{else}}
+    <menu>
+        <a href="/user/signup">Sign Up</a>
+        <a href="/user/login">Login</a>
+    </menu>
+    {{/if}}
 </header>
-{{#if currentUser }}
-<a href="/logout">Logout</a>
-<a href="/user/{{currentUser._id}}">Profile</a>
-{{else}}
-<a href="/user/signup">Sign Up</a>
-<a href="/user/login">Login</a>
-{{/if}}
 <body>
     {{{ body }}}
 </body>
 <script src="/gameScript.js"></script>
-<footer>
+{{!-- <footer>
     <div>
         <h5>About the developer</h5>
         <p>Information</p>
     </div>
-</footer>
+</footer> --}}
 </html>

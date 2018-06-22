@@ -1,3 +1,15 @@
+/* Call Fonts
+font-family: 'Montserrat', sans-serif;
+font-family: 'Dosis', sans-serif; */
+
+html {
+    background: #FBE8A6;
+}
+
+html body {
+    margin: 0;
+    padding: 0;
+}
 h5 {
     color: red;
     text-decoration: none;
@@ -5,5 +17,31 @@ h5 {
 
 header {
     width: 100%;
-    height: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFB366;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
 }
+
+header a{
+    text-decoration: none;
+    color: #303C6C;
+    font-size: 45px;
+}
+header a:hover {
+    text-decoration: underline;
+    color: rgb(177, 251, 255);
+}
+menu {
+    display: flex;
+    flex-direction: column;
+}
+
+menu a {
+    font-size: 22px;
+}
+
+
