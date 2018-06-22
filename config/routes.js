@@ -23,7 +23,8 @@ router.route('/')
   .post(applicationController.requireAuth, applicationController.postPost)
 
 router.route('/ViciousVocab')
-  .get(gameController.show)
+  .get(gameController.getGame)
+  .post(gameController.postGame)
 
 router.route('/user/signup')
   .get(userController.getSignUp)

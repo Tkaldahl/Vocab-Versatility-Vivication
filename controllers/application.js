@@ -1,4 +1,3 @@
-// const { Vocab } = require('../models/index')
 const Index = require('../models/index')
 
 function index (req, res) {
