@@ -35,6 +35,7 @@ header a:hover {
     text-decoration: underline;
     color: rgb(177, 251, 255);
 }
+
 menu {
     display: flex;
     flex-direction: column;
@@ -182,4 +183,103 @@ section form {
     color: #303C6C;
     font-size: 25px;
     border-radius: 10px;
+}
+
+#profilePageContainer {
+    width: 95%;
+}
+
+#userInfoCard {
+    background: #F4976C;
+    width: 50%;
+    border-radius: 10px;
+    color: #303C6C;
+    margin-top: 5%;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Dosis', sans-serif;
+}
+
+#userInfoCard a{
+    text-decoration: none;
+    color: #303C6C;
+    font-size: 45px;
+}
+#userInfoCard a:hover {
+    text-decoration: underline;
+    color: rgb(177, 251, 255);
+}
+
+#gamesAndPostsContainer {
+    display: flex;
+}
+
+#gamesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 5% 0 5%;
+}
+
+#gamesContainer h2 {
+    color: #303C6C;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    margin: 5px;
+    text-decoration: underline;
+}
+
+#postContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 5% 0 5%;
+}
+
+#postContainer h2 {
+    color: #303C6C;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    margin: 5px;
+    text-decoration: underline;
+}
+
+.profilePageCard {
+    position: relative;
+    background: #D2FDFF;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+#gamesAndPostsContainer ol {
+    background: #B4DFE5;
+    color: #303C6C;
+    width: 83%;
+    margin: 2.75%;
+    -moz-box-shadow: 4px -4px #303C6C;
+    -webkit-box-shadow: 4px -4px #303C6C;
+    box-shadow: 2px -2px #303C6C;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profilePageCard p {
+    background: #B4DFE5;
+    color: #303C6C;
+    width: 83%;
+    margin: 2.75%;
+    -moz-box-shadow: 4px -4px #303C6C;
+    -webkit-box-shadow: 4px -4px #303C6C;
+    box-shadow: 2px -2px #303C6C;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#playedDate {
+    background: #B4DFE5;
+    color: #303C6C;
+    width: 83%;
+    margin: 2.75%;
+    box-shadow: 2px -2px #303C6C;
+    border-radius: 10px;
+    padding: 2%;
+    /* font-family: 'Montserrat', sans-serif; */
 }
