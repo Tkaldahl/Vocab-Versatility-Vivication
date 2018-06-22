@@ -43,7 +43,12 @@ Index.User.find({}).remove(() => {
         testerId = newUserAdded._id
         // Third, with the test user created, that user creates a GameInstance using the GameInstance model
         Index.GameInstance.create({
-          sentences: ['magnificent sentence 1', 'indignant sentence 1', 'stoke sentence 1', 'magnificent sentence 2', 'indignant sentence 2', 'stoke sentence 2', 'magnificent sentence 3', 'indignant sentence 3', 'stoke sentence 3'],
+          sentences1: 'magnificent sentence',
+          sentences2: 'indignant sentence',
+          sentences3: 'stoke sentence',
+          sentences4: 'magnificent sentence 2',
+          sentences5: 'indignant sentence 2',
+          sentences6: 'stoke sentence 2',
           player: testerId,
           vocabUsed: ['magnificent', 'indignant', 'stoke']
         }).then((gameInstanceAdded) => {
@@ -56,7 +61,7 @@ Index.User.find({}).remove(() => {
               if (err) return console.error(err)
               selectedUserObject.gameInstances.push(gameId)
               selectedUserObject.save((err) => console.error(err))
-              console.log(selectedUserObject)
+              // console.log(selectedUserObject)
             })
         })
         // Fifth our user writes a post
@@ -74,7 +79,7 @@ Index.User.find({}).remove(() => {
               if (err) return console.error(err)
               selectedUserObject.writtenPosts.push(postId)
               selectedUserObject.save((err) => console.error(err))
-              console.log(selectedUserObject)
+              // console.log(selectedUserObject)
             })
         })
       })
