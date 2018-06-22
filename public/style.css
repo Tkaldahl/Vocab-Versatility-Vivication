@@ -281,5 +281,84 @@ section form {
     box-shadow: 2px -2px #303C6C;
     border-radius: 10px;
     padding: 2%;
-    /* font-family: 'Montserrat', sans-serif; */
+}
+gamePageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#gameBoard {
+    display: flex;
+    flex-direction: column;
+}
+
+#buttonAndTimerContainer {
+    display: flex;
+    /* margin:  */
+}
+
+#startButton {
+    background: #FFB366;
+    color: #303C6C;
+    height: 50px;
+    width: 85px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: blue;
+    margin: auto
+}
+
+#startButton:hover {
+    background: #F4976C;
+    color:  #303C6C;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.timer {
+    margin: auto;
+    background: #FFB366;
+    color: #303C6C;
+    height: 50px;
+    width: 85px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: blue;
+    margin: auto;
+    text-align: center;
+}
+
+.timer h3 {
+    margin: 0;
+}
+
+#timer {
+    font-size: 25px;
+}
+
+#randomWord {
+    width: 80%;
+    background: #303C6C;
+    justify-self: center;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #B4DFE5;
+    margin: 20px auto;
+    text-align: center
+}
+
+#gameForm {
+    margin: auto;
+}
+
+#gameForm .sentenceField {
+    width: 80%;
+    height: 25%;
+    background: #F4976C;
+    color: #303C6C;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    border: white;
+    border-radius: 10px;
 }

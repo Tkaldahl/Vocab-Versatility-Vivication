@@ -1,17 +1,33 @@
-<h1>Vocabulary Versatility Vivication!</h1>
-{{#if message}}
-  <p class="alert">{{message}}</p>
-{{/if}}
-<button id="startButton">Play</button>
-<div id="timer">180</div>
-<randomWord id="randomWord">random word</randomWord>
-<form action="/ViciousVocab" method="post">
-    <input type="text" name="sentence1[content]" class="sentenceField" id="focus1"><br>
-    <input type="text" name="sentence2[content]" class="sentenceField" id="focus2"><br>
-    <input type="text" name="sentence3[content]" class="sentenceField" id="focus3"><br>
-    <input type="text" name="sentence4[content]" class="sentenceField" id="focus4"><br>
-    <input type="text" name="sentence5[content]" class="sentenceField" id="focus5"><br>
-    <input type="text" name="sentence6[content]" class="sentenceField" id="focus6"><br>
-    <input type="submit" id='jsSubmitButton'>
-    Write a sentence using the Random Word and press return
-</form>
+<div id='gamePageContainer'>
+  <div class='directions'>
+  <h1>Vocabulary Versatility Vivication!</h1>
+  <p>When you press Start below the countdown will begin. <br>
+  You have 3 minutes to complete 6 sentences using randomly selected words. <br>
+  After each sentence press Enter to get your next word and move to the next box. <br>
+  Don't worry if you don't finish in time. Your answers will be saved whether you finish or not so focus on quality over quantity.
+  </p>
+  </div>
+  {{#if message}}
+    <p class="alert">{{message}}</p>
+  {{/if}}
+  <div id='gameBoard'>
+    <div id='buttonAndTimerContainer'>
+      <button id="startButton">START</button>
+      <div class='timer'>
+        <h3>Time Left</h3>
+        <div id="timer">180</div>
+      </div>
+    </div>
+    <randomWord id="randomWord">Your random words will appear here</randomWord>
+    <form id='gameForm' action="/ViciousVocab" method="post">
+        <input type="text" name="sentence1[content]" class="sentenceField" id="focus1" placeholder="Answer 1"><br>
+        <input type="text" name="sentence2[content]" class="sentenceField" id="focus2" placeholder="Answer 2"><br>
+        <input type="text" name="sentence3[content]" class="sentenceField" id="focus3" placeholder="Answer 3"><br>
+        <input type="text" name="sentence4[content]" class="sentenceField" id="focus4" placeholder="Answer 4"><br>
+        <input type="text" name="sentence5[content]" class="sentenceField" id="focus5" placeholder="Answer 5"><br>
+        <input type="text" name="sentence6[content]" class="sentenceField" id="focus6" placeholder="Answer 6"><br>
+        <input type="submit" id='jsSubmitButton'>
+        {{!-- Write a sentence using the Random Word and press return --}}
+    </form>
+  </div>
+</div>
